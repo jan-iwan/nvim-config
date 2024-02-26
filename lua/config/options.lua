@@ -32,12 +32,7 @@ vim.opt.updatetime = 476
 
 vim.opt.splitbelow = true
 
-vim.opt.conceallevel = 3
-
 vim.opt.textwidth = 80
-
--- for obsidian.nvim
-vim.opt.conceallevel = 2
 
 vim.g.netrw_keepdir = 0
 vim.g.netrw_localcopydircmd = "cp -r"
