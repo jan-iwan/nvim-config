@@ -102,12 +102,4 @@ local mason = {
     end
 }
 
-local dap = {
-    { "mfussenegger/nvim-dap" },
-
-    {
-        "jay-babu/mason-nvim-dap.nvim"
-    }
-}
-
-return { lsp_config, mason, dap }
+return { lsp_config, mason }

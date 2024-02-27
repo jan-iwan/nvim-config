@@ -56,7 +56,7 @@ local all = {
     {
         "norcalli/nvim-colorizer.lua",
 
-        event = { "BufReadPre", "InsertEnter" },
+        event = { "BufReadPre", "BufNewFile" },
         config = function()
             vim.opt.termguicolors = true
 
@@ -104,17 +104,26 @@ local language_specific = {
         config = function()
             vim.g.vimtex_view_method = "zathura"
 
+            -- disable treesitter since it conflicts with vimtex
             require 'nvim-treesitter.configs'.setup({
-                highlight = {
-                    enable = false,
-                },
+                highlight = { enable = false, },
             })
         end
     },
 
+    -- markdown (WIP)
     {
         "preservim/vim-pencil",
-        ft = "markdown",
+        ft = { "markdown", "tex", "text" },
+        config = function()
+            vim.cmd.Pencil()
+            vim.g["pencil#wrapModeDefault"] = "hard"
+            vim.g["pencil#autoformat"] = 1
+            vim.cmd([[
+            set statusline=%<%f\ %h%m%r%w\ \ %{PencilMode()}\ %=\ col\ %c%V\ \ line\ %l\,%L\ %P
+            set rulerformat=%-12.(%l,%c%V%)%{PencilMode()}\ %P
+            ]])
+        end
     },
 }
 

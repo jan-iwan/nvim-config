@@ -16,6 +16,9 @@ local obsidian = {
     },
 
     config = function()
+        vim.cmd("setlocal wrap")
+        vim.g["pencil#wrapModeDefault"] = "hard"
+
         local obsidian = require("obsidian")
 
         obsidian.setup({
