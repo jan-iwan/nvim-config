@@ -1,14 +1,30 @@
--- instead of icons in completion menu
+-- text instead of icons in completion menu
 local kind_icons = {
-  Text = "txt",         Method = ".m()",        Function = "f()",
-  Constructor = "F()",  Field = ".x",           Variable = "var",
-  Class = "class",      Interface = "intf",     Module = "lib",
-  Property = "prop",    Unit = "unit",          Value = "value",
-  Enum = "enum",        Keyword = "key",        Snippet = "snip",
-  Color = "color",      File = "file",          Reference = "ref",
-  Folder = "file",      EnumMember = "enum",    Constant = "const",
-  Struct = "struct",    Event = "event",        Operator = "op",
-  TypeParameter = "()",
+    Text = "txt",
+    Method = ".m()",
+    Function = "f()",
+    Constructor = "F()",
+    Field = ".x",
+    Variable = "var",
+    Class = "class",
+    Interface = "intf",
+    Module = "lib",
+    Property = "prop",
+    Unit = "unit",
+    Value = "val",
+    Enum = "enum",
+    Keyword = "key",
+    Snippet = "snip",
+    Color = "color",
+    File = "file",
+    Reference = "ref",
+    Folder = "file/",
+    EnumMember = "enum",
+    Constant = "const",
+    Struct = "struct",
+    Event = "event",
+    Operator = "++",
+    TypeParameter = "()",
 }
 
 local cmp = {
@@ -31,12 +47,12 @@ local cmp = {
 
         -- cmp is enabled by default
         local enable = true
-        -- but it can be disabled (toggled) by with this keymap
+        -- but it can be disabled (toggled) by with this keymap if you wanted to
         vim.keymap.set("n", "<leader>C",
-        function()
-            enable = not enable
-            cmp.setup({enabled = enable})
-        end)
+            function()
+                enable = not enable
+                cmp.setup({ enabled = enable })
+            end)
 
         cmp.setup({
             mapping = {
@@ -49,6 +65,7 @@ local cmp = {
                         fallback()
                     end
                 end),
+
                 ["<C-p>"] = cmp.mapping.select_prev_item(),
                 ["<C-n>"] = cmp.mapping.select_next_item(),
 
@@ -61,31 +78,33 @@ local cmp = {
                 -- trigger completion menu
                 ["<C-Space>"] = cmp.mapping.complete(),
 
-                -- luasnip
+                -- LuaSnip-related mappings
+                -- jump to next placeholder
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if luasnip.jumpable(1) then
                         luasnip.jump(1)
                     else
                         fallback()
                     end
-                end, {"i", "s"}),
+                end, { "i", "s" }),
 
+                -- jump to previous placeholder
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if luasnip.jumpable(-1) then
                         luasnip.jump(1)
                     else
                         fallback()
                     end
-                end, {"i", "s"}),
+                end, { "i", "s" }),
 
-                -- cycle through choices in luasnip
+                -- cycle through choices in luasnip (i love this)
                 ["<C-c>"] = cmp.mapping(function(fallback)
                     if luasnip.choice_active() then
                         luasnip.change_choice(1)
                     else
                         fallback()
                     end
-                end, {"i", "s"}),
+                end, { "i", "s" }),
             },
             window = {
                 -- limit docs size
@@ -100,12 +119,12 @@ local cmp = {
             sources = {
                 { name = "nvim_lsp" },
                 { name = "luasnip", keyword_length = 2 },
-                { name = "buffer", keyword_length = 4 },
+                { name = "buffer",  keyword_length = 4 },
                 { name = "path" },
                 { name = "nvim_lua" }, -- lua for nvim
             },
             formatting = {
-                fields = {"abbr", "kind", "menu"},
+                fields = { "abbr", "kind", "menu" },
                 format = function(entry, item)
                     -- kind icons
                     item.kind = kind_icons[item.kind]
@@ -143,10 +162,23 @@ local cmp = {
 }
 
 local snippets = {
+    -- I use LuaSnip as my snippet engine. It allows for powerful custom snippets
+    -- written in lua.
+    -- I did this with a lot of help from TJ DeVries videos about this plugin:
+    -- https://youtu.be/Dn800rlPIho?si=8rtkypNCys1EbSi8
+
+    -- files inside of 'lua/snippets' are organized per filetype and written
+    -- using LuaSnip functions. I've tried to not abstract it too much so that
+    -- it is direct and understandable once you've learnt the plugin.
+
+    -- It's very much work in progress though. There are only snippets for
+    -- LaTeX and markdown so far.
+
     "L3MON4D3/LuaSnip",
 
     event = { "InsertEnter", "CmdlineEnter" },
 
+    -- i don't really like these
     -- dependencies = {{ "rafamadriz/friendly-snippets" }},
 
     build = "make install_jsregexp",
@@ -176,6 +208,7 @@ local snippets = {
             -- dynamic snippets that update while typing
             updateevents = "TextChanged,TextChangedI",
 
+            -- this is for pasting selected text inside of a snippet
             store_selection_keys = "<C-s>",
         })
     end

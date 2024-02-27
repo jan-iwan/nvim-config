@@ -1,3 +1,4 @@
+-- Obsidian note-taking inside neovim
 local obsidian = {
     "epwalsh/obsidian.nvim",
     version = "*",
@@ -182,15 +183,7 @@ local obsidian = {
                 update_debounce = 200, -- update delay after a text change (in milliseconds)
 
                 -- i dislike icons
-                checkboxes = {
-                    -- -- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
-                    -- [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
-                    -- ["x"] = { char = "", hl_group = "ObsidianDone" },
-                    -- [">"] = { char = "", hl_group = "ObsidianRightArrow" },
-                    -- ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
-
-                    -- You can also add more custom ones...
-                },
+                checkboxes = {},
                 bullets = { char = "-", hl_group = "ObsidianBullet" },
                 external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
                 reference_text = { hl_group = "ObsidianRefText" },

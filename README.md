@@ -46,3 +46,8 @@ Here is some of what I have:
   <img src="https://github.com/jan-iwan/nvim-config/assets/125842224/9b8e9141-4ff7-47f1-acfb-72222bb23d93">
   <img src="https://github.com/jan-iwan/nvim-config/assets/125842224/896d7408-82a8-44aa-a57e-79f83e982582">
 </p>
+
+## Contributing
+
+If you like my config or find it helpful please consider helping me exit vim, I
+still don't know how to do it. Help!

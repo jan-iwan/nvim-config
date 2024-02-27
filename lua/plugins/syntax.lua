@@ -111,7 +111,7 @@ local language_specific = {
         end
     },
 
-    -- markdown (WIP)
+    -- very much WIP
     {
         "preservim/vim-pencil",
         ft = { "markdown", "tex", "text" },

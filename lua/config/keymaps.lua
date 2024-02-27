@@ -5,8 +5,6 @@ vim.g.maplocalleader = " "
 
 -- easier write and quit
 vim.keymap.set("n", ";w", ":w<cr>")
-vim.keymap.set("n", ";q", ":q<cr>")
-vim.keymap.set("n", ";Q", ":qall<cr>")
 
 -- netrw file explorer
 vim.keymap.set("n", "<leader>e", ":Explore<CR>")

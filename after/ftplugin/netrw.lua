@@ -1,6 +1,10 @@
+-- apparently netrw counts as a filetype
+
 -- global options cannot be set up here
 -- they need to in lua/config/options.lua for some reason
 -- otherwise toggling hidden files will not work (idk why)
+
+-- these are just some keymaps for better navigating inside netrw
 
 local function map(lhs, rhs)
     vim.keymap.set("n", lhs, rhs, { remap = true, buffer = true })

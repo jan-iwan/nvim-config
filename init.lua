@@ -1,16 +1,26 @@
--- -- -- -- ~~ ~~ # neovim config # ~~ ~~ -- -- -- --
+-- -- ~~ -- ~~ ~~{# neovim config #}~~ ~~ -- ~~ -- --
 --                                                 --
 -- Welcome to my nvim config!                      --
 --                                                 --
--- Files inside of '~/.config/nvim/lua' are used   --
--- for configuration in lua. The plugins directory --
--- is sourced and lazy-lodaded by the plugin       --
--- manager, lazy.nvim. There are also some         --
--- snippets which are loaded by the LuaSnip plugin.--
+-- I hope to have made it as readable as possible. --
 --                                                 --
--- Each lua file inside of 'plugins' corresponds   --
--- to some functionality rather than some specific --
--- plugin.                                         --
+-- Files required in here are self explanatory.    --
+-- They are located under 'lua/config'.            --
+-- config.pluging specifies configuration for the  --
+-- plugin manager, lazy.nvim but doesn't load any  --
+-- particular plugin.                              --
+--                                                 --
+-- 'lua/plugins' is sourced by lazy.nvim and       --
+-- contains all plugin configuration.              --
+-- Plugin-related keymaps are also in there.       --
+--                                                 --
+-- 'lua/snippets' is sourced by the LuaSnip plugin --
+-- and contains snippets written in lua. More info --
+-- in 'lua/plugins/cmp.lua'.                       --
+--                                                 --
+-- 'after/ftplugin' contains filetype-specific     --
+-- configuration. They are just autocommands but   --
+-- it's cleaner to have them there.                --
 --                                                 --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
