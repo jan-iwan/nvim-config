@@ -22,9 +22,9 @@ patches](https://github.com/jan-iwan/dots/blob/main/z/bak/fonts/terminus.sh).
 
 I like the UI to look simple and rather pixelated, so i avoid things (like
 icons) that need antialiasing to be usable or decorative elements that I don't
-find necessary. That's why i prefer to use the default startup screen. <p
-align="center"> <img
-src="https://github.com/jan-iwan/nvim-config/assets/125842224/68f084d7-feb5-4991-8ac5-c2d7c235a543">
+find necessary. That's why i prefer to use the default startup screen.
+<p align="center">
+  <img src="https://github.com/jan-iwan/nvim-config/assets/125842224/908f52e9-1916-4676-88ee-35cb292947b6">
 </p>
 
 ## Plugins
@@ -41,3 +41,9 @@ Here is some of what I have:
 - [vim-pencil](https://github.com/preservim/vim-pencil) for prose oriented writing (markdown and LaTeX).
 - [vim-mundo](https://github.com/simnalamburt/vim-mundo) for undo history and tree
 - Last but not least, the _one and only_ file manager, Netrw!
+
+
+<p align="center">
+  <img src="https://github.com/jan-iwan/nvim-config/assets/125842224/9b8e9141-4ff7-47f1-acfb-72222bb23d93">
+  <img src="https://github.com/jan-iwan/nvim-config/assets/125842224/896d7408-82a8-44aa-a57e-79f83e982582">
+</p>
