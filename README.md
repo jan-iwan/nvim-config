@@ -34,8 +34,8 @@ Here is some of what I have:
 - LSP setup with [mason.nvim](https://github.com/williamboman/mason.nvim).
 - Completion with [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) and custom [LuaSnip](https://github.com/L3MON4D3/LuaSnip) snippets.
 - [Telescope](https://github.com/nvim-telescope/telescope.nvim) fuzzy finder.
-- [VimTeX](https://github.com/lervag/vimtex) for editing LaTeX. Syntax highlighting with
-- [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) (except for LaTeX, since it confilcts with vimtex).
+- [VimTeX](https://github.com/lervag/vimtex) for editing LaTeX.
+- Syntax highlighting with [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) (except for LaTeX, since it confilcts with vimtex).
 - Colorful color codes using [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua).
 - Note taking in Obsidian with [obsidian.nvim](https://github.com/epwalsh/obsidian.nvim).
 - [vim-pencil](https://github.com/preservim/vim-pencil) for prose oriented writing (markdown and LaTeX).
