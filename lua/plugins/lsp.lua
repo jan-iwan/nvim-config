@@ -5,6 +5,7 @@ local lsp_config = {
     "neovim/nvim-lspconfig",
 
     cmd = { "LspInfo" },
+
     event = { "BufReadPre", "BufNewFile" },
 
     dependencies = {
@@ -16,7 +17,7 @@ local lsp_config = {
         vim.diagnostic.config({ virtual_text = false })
 
         -- diagnostics are not exclusive to lsp servers
-        vim.keymap.set("n", "<leader>lg", vim.diagnostic.open_float)
+        vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
         vim.keymap.set("n", "[l", vim.diagnostic.goto_next)
         vim.keymap.set("n", "]l", vim.diagnostic.goto_prev)
 
@@ -76,27 +77,39 @@ local mason = {
     },
 
     config = function()
-        local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+        local lsp = require("lspconfig")
+
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
         local default_setup = function(server)
-            require("lspconfig")[server].setup({
-                capabilities = lsp_capabilities,
+            lsp[server].setup({
+                capabilities = capabilities,
             })
         end
 
         require("mason").setup({})
+
         require("mason-lspconfig").setup({
-            ensure_installed = { "clangd", "pyright", "lua_ls" },
+            -- for calngd, i have $HOME/.clang-format for customizing the formatter
+            ensure_installed = { "clangd", "pylsp", "lua_ls" },
             handlers = {
                 default_setup,
                 lua_ls = function()
-                    require("lspconfig").lua_ls.setup({
-                        capabilities = lsp_capabilities,
+                    lsp.lua_ls.setup({
+                        capabilities = capabilities,
                         settings = {
                             Lua = { diagnostics = { globals = { "vim" } }, },
                         },
                     })
                 end,
+                clangd = function()
+                    lsp.clangd.setup({
+                        capabilities = capabilities,
+                        settings = {
+                            clangd = { fallbackFlags = "--fallback-style=" }
+                        },
+                    })
+                end
             },
         })
     end
