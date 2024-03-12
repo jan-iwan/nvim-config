@@ -9,6 +9,13 @@ local obsidian = {
         "BufNewFile " .. vim.fn.expand("~") .. "/Documents/kasi/**.md",
     },
 
+    cmd = { "ObsidianNew", "ObsidianSearch" },
+
+    keys = {
+        { "<leader>on", vim.cmd.ObsidianNew },
+        { "<leader>os", vim.cmd.ObsidianSearch },
+    },
+
     dependencies = {
         "nvim-lua/plenary.nvim",
         "hrsh7th/nvim-cmp",
@@ -74,17 +81,6 @@ local obsidian = {
                     end,
                     opts = { buffer = true },
                 },
-                -- new note
-                ["<leader>on"] = {
-                    action = function()
-                        vim.cmd("ObsidianNew")
-                    end,
-                },
-                ["<leader>os"] = {
-                    action = function()
-                        vim.cmd("ObsidianSearch")
-                    end,
-                },
                 -- paste image
                 ["<leader>op"] = {
                     action = function()
@@ -114,7 +110,7 @@ local obsidian = {
 
             -- yaml at the top of each note
             note_frontmatter_func = function(note)
-                local out = { aliases = note.aliases, tags = note.tags, date = os.date("%a %d/%m/%Y"), }
+                local out = { aliases = note.aliases, tags = note.tags, date = os.date("%a. %d/%m/%Y"), }
 
                 -- `note.metadata` contains any manually added fields in the frontmatter.
                 -- So here we just make sure those fields are kept in the frontmatter.
@@ -150,18 +146,8 @@ local obsidian = {
             -- Optional, set to true to force ':ObsidianOpen' to bring the app to the foreground.
             open_app_foreground = false,
 
-            -- Optional, by default commands like `:ObsidianSearch` will attempt to use
-            -- telescope.nvim, fzf-lua, fzf.vim, or mini.pick (in that order), and use the
-            -- first one they find. You can set this option to tell obsidian.nvim to always use this
-            -- finder.
-            finder = "telescope.nvim",
-
-            -- Optional, configure key mappings for the finder. These are the defaults.
-            -- If you don't want to set any mappings this way then set
-            finder_mappings = {
-                -- Create a new note from your query with `:ObsidianSearch` and `:ObsidianQuickSwitch`.
-                -- Currently only telescope supports this.
-                new = "<C-x>",
+            picker = {
+                name = "telescope.nvim",
             },
 
             -- Optional, sort search results by "path", "modified", "accessed", or "created".

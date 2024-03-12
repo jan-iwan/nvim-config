@@ -49,16 +49,16 @@ return {
     s(
         { trig = "dv", snippetType = "autosnippet", },
         c(1, {
-            fmta([[\dv{<>}{<>}]], { r(1, "fun"), r(2, "var", i(nil, "x")) }),
-            fmta([[\dv{<>} <>]], { r(1, "var", i(nil, "x")), r(2, "fun") }),
+            fmta([[\dv{<>}{<>}]], { rep(1, "fun"), rep(2, "var", i(nil, "x")) }),
+            fmta([[\dv{<>} <>]], { rep(1, "var", i(nil, "x")), rep(2, "fun") }),
         })
     ),
     -- nth derivative
     s(
         { trig = "ndv", snippetType = "autosnippet", },
         c(1, {
-            fmta([[\dv[<>]{<>}{<>}]], { r(1, "order", i(nil, "2")), r(2, "fun"), r(3, "var", i(nil, "x")) }),
-            fmta([[\dv[<>]{<>} <>]], { r(1, "order", i(nil, "2")), r(2, "var", i(nil, "x")), r(3, "fun") }),
+            fmta([[\dv[<>]{<>}{<>}]], { rep(1, "order", i(nil, "2")), rep(2, "fun"), rep(3, "var", i(nil, "x")) }),
+            fmta([[\dv[<>]{<>} <>]], { rep(1, "order", i(nil, "2")), rep(2, "var", i(nil, "x")), rep(3, "fun") }),
         })
     ),
 
@@ -66,8 +66,8 @@ return {
     s(
         { trig = "dp", snippetType = "autosnippet", },
         c(1, {
-            fmta([[\pdv{<>}{<>}]], { r(1, "fun"), r(2, "var", i(nil, "x")) }),
-            fmta([[\pdv{<>} <>]], { r(1, "var", i(nil, "x")), r(2, "fun") }),
+            fmta([[\pdv{<>}{<>}]], { rep(1, "fun"), rep(2, "var", i(nil, "x")) }),
+            fmta([[\pdv{<>} <>]], { rep(1, "var", i(nil, "x")), rep(2, "fun") }),
         }),
         { condition = tex.in_math, }
     ),
@@ -75,8 +75,8 @@ return {
     s(
         { trig = "ndp", snippetType = "autosnippet", },
         c(1, {
-            fmta([[\pdv[<>]{<>}{<>}]], { r(1, "order", i(nil, "2")), r(2, "fun"), r(3, "var", i(nil, "x")) }),
-            fmta([[\pdv[<>]{<>} <>]], { r(1, "order", i(nil, "2")), r(2, "var", i(nil, "x")), r(3, "fun") }),
+            fmta([[\pdv[<>]{<>}{<>}]], { rep(1, "order", i(nil, "2")), rep(2, "fun"), rep(3, "var", i(nil, "x")) }),
+            fmta([[\pdv[<>]{<>} <>]], { rep(1, "order", i(nil, "2")), rep(2, "var", i(nil, "x")), rep(3, "fun") }),
         })
     ),
 
@@ -84,8 +84,8 @@ return {
     s(
         { trig = "ds", snippetType = "autosnippet", },
         c(1, {
-            fmta([[\partial_{<>} ]], { r(1, "var", i(nil, "x")) }),
-            fmta([[\partial^{<>}_{<>} ]], { i(1, "2"), r(2, "var", i(nil, "x")) }),
+            fmta([[\partial_{<>} ]], { rep(1, "var", i(nil, "x")) }),
+            fmta([[\partial^{<>}_{<>} ]], { i(1, "2"), rep(2, "var", i(nil, "x")) }),
         }),
         { condition = tex.in_math, }
     ),
@@ -115,8 +115,8 @@ return {
         { trig = "int", snippetType = "autosnippet", },
         {
             c(1, {
-                fmta([[\int <>]], { r(1, "integrand") }),
-                fmta([[\int_{<>}^{<>} <>]], { i(1, "a"), i(2, "b"), r(3, "integrand") }),
+                fmta([[\int <>]], { rep(1, "integrand") }),
+                fmta([[\int_{<>}^{<>} <>]], { i(1, "a"), i(2, "b"), rep(3, "integrand") }),
             })
         },
         { condition = tex.in_math, }
@@ -127,9 +127,9 @@ return {
         { trig = "nint", snippetType = "autosnippet", },
         {
             c(1, {
-                fmta([[\int_{<>} <>]], { r(1, "domain"), r(2, "integrand") }),
-                fmta([[\iint_{<>} <>]], { r(1, "domain"), r(2, "integrand") }),
-                fmta([[\iiint_{<>} <>]], { r(1, "domain"), r(2, "integrand") }),
+                fmta([[\int_{<>} <>]], { rep(1, "domain"), rep(2, "integrand") }),
+                fmta([[\iint_{<>} <>]], { rep(1, "domain"), rep(2, "integrand") }),
+                fmta([[\iiint_{<>} <>]], { rep(1, "domain"), rep(2, "integrand") }),
             })
         },
         { condition = tex.in_math, }
@@ -140,9 +140,9 @@ return {
         { trig = "oint", snippetType = "autosnippet", },
         {
             c(1, {
-                fmta([[\oint_{<>} <>]], { r(1, "domain"), r(2, "integrand") }),
-                fmta([[\oiint_{<>} <>]], { r(1, "domain"), r(2, "integrand") }),
-                fmta([[\oiiint_{<>} <>]], { r(1, "domain"), r(2, "integrand") }),
+                fmta([[\oint_{<>} <>]], { rep(1, "domain"), rep(2, "integrand") }),
+                fmta([[\oiint_{<>} <>]], { rep(1, "domain"), rep(2, "integrand") }),
+                fmta([[\oiiint_{<>} <>]], { rep(1, "domain"), rep(2, "integrand") }),
             })
         },
         { condition = tex.in_math, }
@@ -150,12 +150,12 @@ return {
 
     -- summation
     s(
-        { trig = "su", snippetType = "autosnippet", },
+        { trig = "sum", snippetType = "autosnippet", },
         {
             c(1, {
-                fmta([[\sum_{<>}^{<>} <>]], { r(1, "bound"), i(2, "\\infty"), r(3, "sum") }),
-                fmta([[\sum_{<>} <>]], { r(1, "bound"), r(2, "sum") }),
-                fmta([[\sum <>]], { r(1, "sum") }),
+                fmta([[\sum_{<>}^{<>} <>]], { rep(1, "bound"), i(2, "\\infty"), rep(3, "sum") }),
+                fmta([[\sum_{<>} <>]], { rep(1, "bound"), rep(2, "sum") }),
+                fmta([[\sum <>]], { rep(1, "sum") }),
             }),
         },
         { condition = tex.in_math, }

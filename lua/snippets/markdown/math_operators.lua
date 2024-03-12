@@ -151,7 +151,7 @@ return {
 
     -- summation
     s(
-        { trig = "su", snippetType = "autosnippet", },
+        { trig = "sum", snippetType = "autosnippet", },
         {
             c(1, {
                 fmta([[\sum_{<>}^{<>} <>]], { r(1, "bound"), i(2, "\\infty"), r(3, "sum") }),

@@ -22,7 +22,7 @@ return {
     -- fraction
     s(
         { trig = "//", snippetType = "autosnippet", },
-        fmta([[\\frac{<>}{<>}]], { i(1), i(2) }),
+        fmta([[\frac{<>}{<>}]], { i(1), i(2) }),
         { condition = tex.in_mathzone, }
     ),
 

@@ -1,5 +1,6 @@
 vim.cmd("setlocal spelllang=en,es")
 vim.cmd("setlocal spell")
+vim.g["pencil#autoformat"] = 1
 
 -- automatically insert "\item" in newline when inside of itemize or enumerate
 local function new_item()

@@ -40,9 +40,11 @@ vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<A-k>", ":m .-2<CR>==")
 vim.keymap.set("v", "<A-j>", ":m .+1<CR>==")
 
--- pasted stuff stays in clipboard
--- weird results when pasting at end of line
-vim.keymap.set("v", "p", '"_dP')
+-- paste from the 0 register, which contains the pasted text but not the one
+-- replaced. The replaced text is yanked normally tho.
+-- I used '<leader>p' instead of just 'p' to be able to still use other
+-- registers without conflicts.
+vim.keymap.set({ "n", "v" }, "<leader>p", '"0p')
 
 
 -- ## visual block mode ## --
