@@ -16,7 +16,7 @@ local lsp_config = {
     config = function()
         vim.diagnostic.config({ virtual_text = false })
 
-        -- diagnostics are not exclusive to lsp servers
+        -- Diagnostics are not exclusive to lsp servers
         vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
         vim.keymap.set("n", "[l", vim.diagnostic.goto_next)
         vim.keymap.set("n", "]l", vim.diagnostic.goto_prev)
@@ -25,7 +25,7 @@ local lsp_config = {
             group = vim.api.nvim_create_augroup('UserLspConfig', {}),
             desc = "LSP actions",
             callback = function(event)
-                -- buffer-local keymaps
+                -- Buffer-local keymaps
                 local opts = { buffer = event.buf }
 
                 vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
@@ -57,6 +57,7 @@ local mason = {
             "williamboman/mason-lspconfig.nvim",
             opts = {},
         },
+        { "WhoIsSethDaniel/mason-tool-installer.nvim" },
     },
 
     build = function()
@@ -90,10 +91,12 @@ local mason = {
         require("mason").setup({})
 
         require("mason-lspconfig").setup({
-            -- for calngd, i have $HOME/.clang-format for customizing the formatter
-            ensure_installed = { "clangd", "pylsp", "lua_ls" },
+            -- For clangd, i have $HOME/.clang-format for customizing the formatter
+            ensure_installed = { "clangd", "pyright", "lua_ls" },
             handlers = {
                 default_setup,
+
+                -- Specific configuration for lua_ls
                 lua_ls = function()
                     lsp.lua_ls.setup({
                         capabilities = capabilities,
@@ -102,17 +105,25 @@ local mason = {
                         },
                     })
                 end,
-                clangd = function()
-                    lsp.clangd.setup({
-                        capabilities = capabilities,
-                        settings = {
-                            clangd = { fallbackFlags = "--fallback-style=" }
-                        },
-                    })
-                end
             },
+        })
+
+        require("mason-tool-installer").setup({
+            ensure_installed = {
+                "black",   -- formatter
+                "debugpy", -- for nvim-dap-python
+            }
         })
     end
 }
 
-return { lsp_config, mason }
+local lang_specific = {
+    -- Python
+    {
+        "psf/black",
+
+        ft = "python",
+    },
+}
+
+return { lsp_config, mason, lang_specific }
