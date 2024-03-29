@@ -32,17 +32,17 @@ local dap = {
             local dap = require("dap")
             local dapui = require("dapui")
 
-            vim.keymap.set("n", "<leader>di", dapui.toggle)
+            -- vim.keymap.set("n", "<leader>dt", dapui.toggle)
 
             -- This is MOSTLY the default configuration
             -- Check `:help dapui.setup()`
             dapui.setup({
                 mappings = {
-                    edit = "e",
+                    edit   = "e",
                     expand = { "<CR>", "<2-LeftMouse>" },
-                    open = "o",
+                    open   = "o",
                     remove = "d",
-                    repl = "r",
+                    repl   = "r",
                     toggle = "t"
                 },
                 controls = {
@@ -51,14 +51,14 @@ local dap = {
                     -- I dislike icons
                     icons = {
                         disconnect = "[discon]",
-                        pause = "[pause]",
-                        play = "[play]",
-                        run_last = "[runlast]",
-                        step_back = "[>back]",
-                        step_into = "[>into]",
-                        step_out = "[>out]",
-                        step_over = "[>over]",
-                        terminate = "[x]"
+                        pause      = "[pause]",
+                        play       = "[play]",
+                        run_last   = "[runlast]",
+                        step_back  = "[>back]",
+                        step_into  = "[>into]",
+                        step_out   = "[>out]",
+                        step_over  = "[>over]",
+                        terminate  = "[x]"
                     }
                 },
                 element_mappings = {},
@@ -71,9 +71,9 @@ local dap = {
                 },
                 force_buffers = true,
                 icons = {
-                    collapsed = ">",
+                    collapsed     = ">",
                     current_frame = ">",
-                    expanded = "v"
+                    expanded      = "v"
                 },
                 layouts = {
                     {
@@ -130,7 +130,7 @@ local languages = {
 
         dependencies = {
             "mfussenegger/nvim-dap",
-            "mfussenegger/nvim-dap-ui",
+            "rcarriga/nvim-dap-ui",
         },
 
         config = function()

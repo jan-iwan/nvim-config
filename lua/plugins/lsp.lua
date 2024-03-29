@@ -92,7 +92,8 @@ local mason = {
 
         require("mason-lspconfig").setup({
             -- For clangd, i have $HOME/.clang-format for customizing the formatter
-            ensure_installed = { "clangd", "pyright", "lua_ls" },
+            -- For Python, i used pyright but it didn't work correctly for some reason. Also it was pretty slow
+            ensure_installed = { "clangd", "pylsp", "lua_ls" },
             handlers = {
                 default_setup,
 
@@ -110,7 +111,7 @@ local mason = {
 
         require("mason-tool-installer").setup({
             ensure_installed = {
-                "black",   -- formatter
+                -- "black",   -- formatter, not needed with pylsp
                 "debugpy", -- for nvim-dap-python
             }
         })
