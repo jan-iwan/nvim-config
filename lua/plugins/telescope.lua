@@ -20,7 +20,6 @@ local telescope = {
         vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
         vim.keymap.set("n", "<leader>fl", builtin.lsp_document_symbols, {})
         vim.keymap.set("n", "<leader>fs", builtin.grep_string, {})
-        vim.keymap.set("n", "<leader>fs", builtin.grep_string, {})
         vim.keymap.set("n", "<leader>f;", builtin.commands, {})
         vim.keymap.set("n", "<leader>fu", "<cmd>Telescope undo<CR>", {})
 

@@ -117,9 +117,10 @@ local cmp = {
                 end,
             },
             sources = {
+                { name = "luasnip",    keyword_length = 2 },
                 { name = "nvim_lsp" },
-                { name = "luasnip", keyword_length = 2 },
-                { name = "buffer",  keyword_length = 4 },
+                { name = "cmp-vimtex", keyword_length = 2 },
+                { name = "buffer",     keyword_length = 4 },
                 { name = "path" },
                 { name = "nvim_lua" }, -- lua for nvim
             },
@@ -139,11 +140,12 @@ local cmp = {
                     end
 
                     local short_name = {
-                        buffer = "buf",
                         nvim_lsp = "lsp",
+                        luasnip  = "snip",
+                        vimtex   = "tex",
+                        buffer   = "buf",
+                        path     = "path",
                         nvim_lua = "vim",
-                        path = "path",
-                        luasnip = "sinp",
                     }
 
                     local menu_name = short_name[entry.source.name] or entry.source.name
@@ -214,4 +216,12 @@ local snippets = {
     end
 }
 
-return { cmp, snippets }
+local cmp_vimtex = {
+    "micangl/cmp-vimtex",
+
+    dependencies = {
+        "hrsh7th/nvim-cmp",
+    }
+}
+
+return { cmp, snippets, cmp_vimtex }

@@ -10,11 +10,8 @@ return {
 
     -- square
     s(
-        { trig = "sq", snippetType = "autosnippet", wordTrig = false },
-        c(1, {
-            t([[^2]]),
-            fmta([[^{<>}]], i(1, "n")),
-        }),
+        { trig = ".sq", snippetType = "autosnippet", wordTrig = false },
+        t([[^2]]),
         { condition = tex.in_math, }
     ),
 
@@ -26,14 +23,14 @@ return {
 
     -- dot product
     s(
-        { trig = "d.", snippetType = "autosnippet", wordTrig = false },
+        { trig = ".d", snippetType = "autosnippet", wordTrig = false },
         t([[\cdot ]]),
         { condition = tex.in_math, }
     ),
 
     -- cross product / cartesian product
     s(
-        { trig = "x.", snippetType = "autosnippet", wordTrig = false },
+        { trig = ".x", snippetType = "autosnippet", wordTrig = false },
         t([[\times ]]),
         { condition = tex.in_math, }
     ),
@@ -47,7 +44,7 @@ return {
 
     -- derivative
     s(
-        { trig = "dv", snippetType = "autosnippet", },
+        { trig = ".dv", snippetType = "autosnippet", },
         c(1, {
             fmta([[\dv{<>}{<>}]], { rep(1, "fun"), rep(2, "var", i(nil, "x")) }),
             fmta([[\dv{<>} <>]], { rep(1, "var", i(nil, "x")), rep(2, "fun") }),
@@ -55,7 +52,7 @@ return {
     ),
     -- nth derivative
     s(
-        { trig = "ndv", snippetType = "autosnippet", },
+        { trig = ".ndv", snippetType = "autosnippet", },
         c(1, {
             fmta([[\dv[<>]{<>}{<>}]], { rep(1, "order", i(nil, "2")), rep(2, "fun"), rep(3, "var", i(nil, "x")) }),
             fmta([[\dv[<>]{<>} <>]], { rep(1, "order", i(nil, "2")), rep(2, "var", i(nil, "x")), rep(3, "fun") }),
@@ -64,7 +61,7 @@ return {
 
     -- partial derivative
     s(
-        { trig = "dp", snippetType = "autosnippet", },
+        { trig = ".dp", snippetType = "autosnippet", },
         c(1, {
             fmta([[\pdv{<>}{<>}]], { rep(1, "fun"), rep(2, "var", i(nil, "x")) }),
             fmta([[\pdv{<>} <>]], { rep(1, "var", i(nil, "x")), rep(2, "fun") }),
@@ -73,7 +70,7 @@ return {
     ),
     -- nth derivative
     s(
-        { trig = "ndp", snippetType = "autosnippet", },
+        { trig = ".ndp", snippetType = "autosnippet", },
         c(1, {
             fmta([[\pdv[<>]{<>}{<>}]], { rep(1, "order", i(nil, "2")), rep(2, "fun"), rep(3, "var", i(nil, "x")) }),
             fmta([[\pdv[<>]{<>} <>]], { rep(1, "order", i(nil, "2")), rep(2, "var", i(nil, "x")), rep(3, "fun") }),
@@ -82,7 +79,7 @@ return {
 
     -- partial derivative with subscript
     s(
-        { trig = "ds", snippetType = "autosnippet", },
+        { trig = ".ds", snippetType = "autosnippet", },
         c(1, {
             fmta([[\partial_{<>} ]], { rep(1, "var", i(nil, "x")) }),
             fmta([[\partial^{<>}_{<>} ]], { i(1, "2"), rep(2, "var", i(nil, "x")) }),
@@ -163,7 +160,7 @@ return {
 
     -- complex conjugate
     s(
-        { trig = "cj", snippetType = "autosnippet", },
+        { trig = ".cj", snippetType = "autosnippet", },
         t([[\conj]]),
         { condition = tex.in_math, }
     ),

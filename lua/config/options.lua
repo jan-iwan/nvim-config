@@ -50,3 +50,5 @@ vim.g.netrw_winsize = 30
 vim.g.netrw_list_hide = [[\(^\|\s\s\)\zs\.\S\+,.*\.aux,.*\.log,.*\.fls,.*\.toc,.*\.fdb_latexmk,.*\.synctex.gz]]
 
 vim.g.c_syntax_for_h = 1
+
+-- vim.g.python3_host_prog = "/usr/bin/python3"
