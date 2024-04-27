@@ -24,21 +24,21 @@ return {
     -- dot product
     s(
         { trig = ".d", snippetType = "autosnippet", wordTrig = false },
-        t([[\cdot ]]),
+        t([[\cdot]]),
         { condition = tex.in_math, }
     ),
 
     -- cross product / cartesian product
     s(
         { trig = ".x", snippetType = "autosnippet", wordTrig = false },
-        t([[\times ]]),
+        t([[\times]]),
         { condition = tex.in_math, }
     ),
 
     -- differential
     s(
         { trig = "df", snippetType = "autosnippet" },
-        { t([[\dif ]]) },
+        { t([[\dif]]) },
         { condition = tex.in_math, }
     ),
 
@@ -81,8 +81,8 @@ return {
     s(
         { trig = ".ds", snippetType = "autosnippet", },
         c(1, {
-            fmta([[\partial_{<>} ]], { rep(1, "var", i(nil, "x")) }),
-            fmta([[\partial^{<>}_{<>} ]], { i(1, "2"), rep(2, "var", i(nil, "x")) }),
+            fmta([[\partial_{<>}]], { rep(1, "var", i(nil, "x")) }),
+            fmta([[\partial^{<>}_{<>}]], { i(1, "2"), rep(2, "var", i(nil, "x")) }),
         }),
         { condition = tex.in_math, }
     ),
@@ -96,7 +96,7 @@ return {
     -- nabla
     s(
         { trig = "/n", snippetType = "autosnippet", },
-        { t([[\nabla ]]) },
+        { t([[\nabla]]) },
         { condition = tex.in_math, }
     ),
 
@@ -146,17 +146,17 @@ return {
     ),
 
     -- summation
-    s(
-        { trig = "sum", snippetType = "autosnippet", },
-        {
-            c(1, {
-                fmta([[\sum_{<>}^{<>} <>]], { rep(1, "bound"), i(2, "\\infty"), rep(3, "sum") }),
-                fmta([[\sum_{<>} <>]], { rep(1, "bound"), rep(2, "sum") }),
-                fmta([[\sum <>]], { rep(1, "sum") }),
-            }),
-        },
-        { condition = tex.in_math, }
-    ),
+    -- s(
+    --     { trig = "sum", snippetType = "autosnippet", },
+    --     {
+    --         c(1, {
+    --             fmta([[\sum_{<>}^{<>} <>]], { rep(1, "bound"), i(2, "\\infty"), rep(3, "sum") }),
+    --             fmta([[\sum_{<>} <>]], { rep(1, "bound"), rep(2, "sum") }),
+    --             fmta([[\sum <>]], { rep(1, "sum") }),
+    --         }),
+    --     },
+    --     { condition = tex.in_math, }
+    -- ),
 
     -- complex conjugate
     s(
@@ -169,6 +169,6 @@ return {
     s(
         { trig = "sst", snippetType = "autosnippet", wordTrig = false },
         t([[\subset]]),
-        { condition = tex.in_mathzone, }
+        { condition = tex.in_math, }
     ),
 }

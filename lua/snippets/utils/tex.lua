@@ -14,9 +14,7 @@
 M = {}
 
 function M.in_math()
-    local mat = vim.fn["vimtex#syntax#in_mathzone"]()
-    print(mat)
-    return mat == 1
+    return vim.fn["vimtex#syntax#in_mathzone"]() == 1
 end
 
 function M.out_math()
