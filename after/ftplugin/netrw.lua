@@ -11,11 +11,11 @@ local function map(lhs, rhs)
 end
 
 map("<Esc>", vim.cmd.bdelete)
-map("H", "u")        -- previous
+-- map("H", "u")        -- previous
 map("h", "-^")       -- up dir
 map("l", "<CR>")     -- enter
 map(".", "gh")       -- hidden files
 map("P", "<C-w>z")   -- close preview ('p' to open)
-map("<tab>", "mf")   -- mark a file
+map("<tab>", "mf")   -- mark (or unmark) a file
 map("<S-tab>", "mF") -- unmark all in current buffer
 map("<A-tab>", "mu") -- unmark all

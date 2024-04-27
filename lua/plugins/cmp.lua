@@ -1,32 +1,3 @@
--- text instead of icons in completion menu
-local kind_icons = {
-    Text = "txt",
-    Method = ".m()",
-    Function = "f()",
-    Constructor = "F()",
-    Field = ".x",
-    Variable = "var",
-    Class = "class",
-    Interface = "intf",
-    Module = "lib",
-    Property = "prop",
-    Unit = "unit",
-    Value = "val",
-    Enum = "enum",
-    Keyword = "key",
-    Snippet = "snip",
-    Color = "color",
-    File = "file",
-    Reference = "ref",
-    Folder = "file/",
-    EnumMember = "enum",
-    Constant = "const",
-    Struct = "struct",
-    Event = "event",
-    Operator = "++",
-    TypeParameter = "()",
-}
-
 local cmp = {
     "hrsh7th/nvim-cmp",
 
@@ -44,6 +15,9 @@ local cmp = {
     config = function()
         local cmp = require("cmp")
         local luasnip = require("luasnip")
+
+        -- text instead of icons in completion menu
+        local kind_icons = require("data.cmp_icons")
 
         -- cmp is enabled by default
         local enable = true
