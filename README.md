@@ -16,13 +16,11 @@ else; it might be helpful though.
 ## Looks
 
 The colorscheme used is [Gruvbox](https://github.com/ellisonleao/gruvbox.nvim)
-with some tweaks here and there and a dark background. The font is Terminus
+with some tweaks and a dark background. The font is Terminus
 (bitmap) [with some
 patches](https://github.com/jan-iwan/dots/blob/main/z/bak/fonts/terminus.sh).
 
-I like the UI to look simple and rather pixelated, so i avoid things (like
-icons) that need antialiasing to be usable or decorative elements that I don't
-find necessary. That's why i prefer to use the default startup screen.
+I like the UI to look simple and the virtual pixels to align with the physical ones, so i avoid things that need antialiasing to be usable or decorative elements that I don't find necessary (icons for example). Also, I prefer the default startup screen.
 <p align="center">
   <img src="https://github.com/jan-iwan/nvim-config/assets/125842224/908f52e9-1916-4676-88ee-35cb292947b6">
 </p>
@@ -33,11 +31,11 @@ For the plugin manager, I use [lazy.nvim](https://github.com/folke/lazy.nvim).
 Here is some of what I have:
 - LSP setup with [mason.nvim](https://github.com/williamboman/mason.nvim).
 - Completion with [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) and custom [LuaSnip](https://github.com/L3MON4D3/LuaSnip) snippets.
+- Debugging with [nvim-dap](https://github.com/mfussenegger/nvim-dap).
 - [Telescope](https://github.com/nvim-telescope/telescope.nvim) fuzzy finder.
 - [VimTeX](https://github.com/lervag/vimtex) for editing LaTeX.
 - Syntax highlighting with [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) (except for LaTeX, since it confilcts with vimtex).
 - Colorful color codes using [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua).
-- Note taking in Obsidian with [obsidian.nvim](https://github.com/epwalsh/obsidian.nvim).
 - [vim-pencil](https://github.com/preservim/vim-pencil) for prose oriented writing (markdown and LaTeX).
 - [vim-mundo](https://github.com/simnalamburt/vim-mundo) for undo history and tree
 - Last but not least, the _one and only_ file manager, Netrw!
@@ -46,8 +44,3 @@ Here is some of what I have:
   <img src="https://github.com/jan-iwan/nvim-config/assets/125842224/9b8e9141-4ff7-47f1-acfb-72222bb23d93">
   <img src="https://github.com/jan-iwan/nvim-config/assets/125842224/896d7408-82a8-44aa-a57e-79f83e982582">
 </p>
-
-## Contributing
-
-If you like my config or find it helpful please consider helping me exit vim, I
-still don't know how to do it. Help!

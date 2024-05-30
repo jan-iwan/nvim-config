@@ -5,6 +5,7 @@ local gruvbox = {
     priority = 1000,
     config = function()
         vim.opt.termguicolors = true
+
         local colors = require("data.palette")
 
         require("gruvbox").setup({

@@ -118,7 +118,7 @@ local language_specific = {
         config = function()
             vim.cmd.Pencil()
             vim.g["pencil#wrapModeDefault"] = "hard"
-            vim.g["pencil#autoformat"] = 1
+            -- vim.g["pencil#autoformat"] = 1
             vim.cmd([[
             set statusline=%<%f\ %h%m%r%w\ \ %{PencilMode()}\ %=\ col\ %c%V\ \ line\ %l\,%L\ %P
             set rulerformat=%-12.(%l,%c%V%)%{PencilMode()}\ %P
